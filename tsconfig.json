@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "es2015",
+        "moduleResolution": "node",
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "inlineSourceMap": true,
+        "inlineSources": true,
+        "allowJs": true
+    },
+    "exclude": [
+        "node_modules",
+        "typings/browser/*",
+        "typings/browser.d.ts",
+        "index.android.js",
+        "index.ios.js"
+    ]
+}
