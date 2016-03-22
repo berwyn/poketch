@@ -12,7 +12,8 @@
     },
     "exclude": [
         "node_modules",
-        "typings/browser/*",
+        ".vscode",
+        "typings/browser",
         "typings/browser.d.ts",
         "index.android.js",
         "index.ios.js"

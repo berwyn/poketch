@@ -36,4 +36,5 @@ npm-debug.log
 # Compiled Code
 android/**/*.js
 ios/**/*.js
+common/**/*.js
 typings/**
