@@ -1,4 +1,4 @@
-export interface Pokemon {
+export class Pokemon {
     
     id: number;
     name: string;
@@ -8,7 +8,7 @@ export interface Pokemon {
     weight: number;
     abilities: Ability[];
     forms: PokemonForm[];
-    sprites: Sprite[];
+    sprites: Sprite;
     species: Species;
     stats: Stat[]
     types: PokemonType[];
@@ -16,30 +16,35 @@ export interface Pokemon {
     
 }
 
-export interface PokemonForm {
+export class PokemonForm {
     
 }
 
-export interface PokemonType {
+export class PokemonType {
     
 }
 
-export interface Species {
+export class Species {
     
 }
 
-export interface Sprite {
+export class Sprite {
+    
+    front_default: string;
+    get frontDefault(): string {
+        return this.front_default;
+    }
     
 }
 
-export interface Stat {
+export class Stat {
     
 }
 
-export interface Type {
+export class Type {
     
 }
 
-export interface Ability {
+export class Ability {
     
 }
