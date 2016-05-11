@@ -38,3 +38,9 @@ android/**/*.js
 ios/**/*.js
 common/**/*.js
 typings/**
+
+# VSC
+
+.vscode/.browse*
+.vscode/typings
+.vscode/launchReactNative.js

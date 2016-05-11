@@ -4,6 +4,6 @@
  */
 'use strict';
 import React, { AppRegistry } from 'react-native';
-import { Poketch } from './android/components/MainComponent';
+import { Poketch } from './android/src/components/MainComponent';
 
 AppRegistry.registerComponent('poketch', () => Poketch);

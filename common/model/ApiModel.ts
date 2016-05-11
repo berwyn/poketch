@@ -28,12 +28,9 @@ export class Species {
     
 }
 
-export class Sprite {
+export interface Sprite {
     
     front_default: string;
-    get frontDefault(): string {
-        return this.front_default;
-    }
     
 }
 

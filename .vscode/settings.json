@@ -1,0 +1,32 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        
+        // Facebook bullshit
+        ".buckconfig": true,
+        ".watchmanconfig": true,
+        
+        // JS
+        "node_modules": true,
+        "common/**/*.js": true,
+        "android/**/*.js": true,
+        "ios/**/*.js": true,
+        
+        // vscode settings
+        ".vscode/.browse*": true,
+        ".vscode/.react": true,
+        ".vscode/typings": true,
+        ".vscode/launchReactNative.js": true,
+        
+        // Android
+        "android/build": true,
+        "android/gradle": true,
+        "android/app/build": true,
+        "android/gradle*": true,
+        
+        // iOS
+        "ios/build": true,
+        "ios/*.xcodeproj": true
+    }
+}

@@ -1,7 +1,7 @@
 import React, { Component, Image, ListView, ListViewDataSource, Text, View } from 'react-native';
-import { API } from '../api/PokeAPI';
-import { PokemonStore } from '../store/PokemonStore';
-import { Pokemon } from '../model/ApiModel';
+import { API } from '../../../common/api/PokeAPI';
+import { PokemonStore } from '../../../common/store/PokemonStore';
+import { Pokemon } from '../../../common/model/ApiModel';
 
 interface PokemonListProps { }
 
@@ -16,7 +16,7 @@ export class PokemonList extends Component<PokemonListProps, PokemonListState> {
 
     constructor(props: PokemonListProps) {
         super(props);
-        
+
         this.state = {
             pokemon: [],
             dataSource: new ListView.DataSource({
@@ -25,23 +25,14 @@ export class PokemonList extends Component<PokemonListProps, PokemonListState> {
                 },
             })
         };
-        
+
         API.getPokemonList()
-            .then(pokemon => {
-                let promises = [];
-                for(let i = 0; i < pokemon.length; i++) {
-                    let id = /pokemon\/(\d{1,3})\/$/.exec(pokemon[i].url)[1];
-                    let promise = PokemonStore.getPokemon(parseInt(id, 10));
-                    promises.push(promise);
-                }
-                
-                Promise.all(promises)
-                    .then((mon:Pokemon[]) => {
-                        this.setState({
-                            pokemon: mon,
-                            dataSource: this.state.dataSource.cloneWithRows(mon)
-                        });
-                    });
+            .then((mon: Pokemon[]) => {
+                console.log('Got list results');
+                this.setState({
+                    pokemon: mon,
+                    dataSource: this.state.dataSource.cloneWithRows(mon)
+                });
             })
             .catch(err => console.error(err));
     }
@@ -55,7 +46,7 @@ export class PokemonList extends Component<PokemonListProps, PokemonListState> {
     }
 
     private renderPokemon(pokemon: Pokemon) {
-        if(React.Platform.OS === 'android') {
+        if (React.Platform.OS === 'android') {
             return <MaterialListItem pokemon={pokemon} />
         } else {
             return <Text>{pokemon.id} - {pokemon.name}</Text>;
@@ -72,14 +63,14 @@ interface ListItemState {
 }
 
 class MaterialListItem extends Component<ListItemProps, ListItemState> {
-    
+
     constructor(props: ListItemProps) {
         super(props);
         this.state = {
             pokemon: props.pokemon || new Pokemon()
         };
     }
-    
+
     render() {
         return (
             <View>
@@ -91,5 +82,5 @@ class MaterialListItem extends Component<ListItemProps, ListItemState> {
             </View>
         )
     }
-    
+
 }
