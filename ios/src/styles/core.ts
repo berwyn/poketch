@@ -1,5 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+export const colors = {
+    appPrimary: '#403075',
+    appPrimaryTranslucent: 'rgb(64,48,117,0.4)'
+};
+
 export const styles = StyleSheet.create({
     container: {
         flex: 1,

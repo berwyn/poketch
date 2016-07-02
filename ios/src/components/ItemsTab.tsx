@@ -1,7 +1,6 @@
-import * as React from 'react-native';
+import React, { Component } from 'react';
+import { NavigatorIOS } from 'react-native';
 import { PokemonList } from './PokemonList';
-
-const { Component, NavigatorIOS } = React;
 
 interface ItemsTabProps { }
 interface ItemsTabState { }

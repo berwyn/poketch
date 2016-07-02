@@ -1,8 +1,10 @@
 declare module "react-native" {
     var Platform: {
-        OS: 'ios'|'android';
+        OS: 'ios' | 'android';
         Version: number;
     }
+
+    export function requireNativeComponent<P>(name: string, arg?: any): React.ComponentClass<P>;
 }
 
 declare namespace __reactNativeViewportUnits {

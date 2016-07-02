@@ -1,5 +1,5 @@
-import React, { 
-    Component,
+import React, { Component } from 'react';
+import {
     Navigator,
     NavigatorStatic,
     Route,
@@ -8,8 +8,8 @@ import React, {
     TouchableOpacity
 } from 'react-native';
 
-import { BlurView } from 'react-native-blur';
 import { PokemonList } from './PokemonList';
+import { NavBar } from './framework/NavBar';
 
 interface PokemonTabProps { }
 interface PokemonTabState { }
@@ -27,7 +27,6 @@ const navigationBarRouteMapper: NavigationBarRouteMapper = {
     LeftButton: () => null,
     
     Title: (route: Route, navigator: NavigatorStatic, index: number, navState: NavState) => {
-        Array.prototype.slice.call(arguments).forEach(arg => console.log(arg));
         return <Text style={styles.title}>{route.title}</Text>;
     },
     
@@ -42,7 +41,7 @@ export class PokemonTab extends Component<PokemonTabProps, PokemonTabState> {
                 initialRoute={{ title: 'Pokémon', type: 'list' }}
                 renderScene={this.renderScene}
                 navigationBar={
-                    <Navigator.NavigationBar routeMapper={navigationBarRouteMapper} />
+                    <NavBar routeMapper={navigationBarRouteMapper} />
                 } />
         );
     }

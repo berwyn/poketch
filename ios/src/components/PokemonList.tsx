@@ -2,9 +2,9 @@ import { API } from '../../../common/api/PokeAPI';
 import { PokemonStore } from '../../../common/store/PokemonStore';
 import { Pokemon } from '../../../common/model/ApiModel';
 
-import React, {
+import React, { Component } from 'react';
+import {
     ActivityIndicatorIOS,
-    Component,
     Image,
     ListView,
     ListViewDataSource,
@@ -24,6 +24,9 @@ interface PokemonListState {
 }
 
 const styles = StyleSheet.create({
+    list: {
+        backgroundColor: '#F5FCFF',
+    },
     image: {
         width: 96,
         height: 96,
@@ -43,10 +46,7 @@ export class PokemonList extends Component<PokemonListProps, PokemonListState> {
         this.state = {
             loading: true,
             dataSource: new ListView.DataSource({
-                rowHasChanged: (lhs, rhs) => {
-                    console.log(lhs, rhs);
-                    return lhs !== rhs
-                },
+                rowHasChanged: (lhs, rhs) => lhs !== rhs,
             })
         };
     }
@@ -76,9 +76,10 @@ export class PokemonList extends Component<PokemonListProps, PokemonListState> {
         
         return (
             <ListView
-                style={{ backgroundColor: '#F5FCFF', paddingTop: 64, paddingBottom: 48 }}
+                style={styles.list}
                 dataSource={this.state.dataSource}
-                renderRow={this.renderPokemon} />
+                renderRow={this.renderPokemon}
+                contentInset={{ top: 64, bottom: 48 }} />
         );
     }
 

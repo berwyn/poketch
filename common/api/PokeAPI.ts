@@ -70,7 +70,7 @@ class Pokeapi {
         return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
             xhr.open('GET', url, true);
-            xhr.responseType = 'json';
+            xhr.responseType = 'text';
 
             for (let header in COMMON_HEADERS) {
                 xhr.setRequestHeader(header, COMMON_HEADERS[header]);
